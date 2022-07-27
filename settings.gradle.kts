@@ -1,1 +1,2 @@
-include("bot")
+include(":bot")
+include(":domain")
