@@ -3,6 +3,7 @@ plugins {
 }
 
 dependencies {
+    implementation(Deps.discord4J)
     implementation(Deps.Kotlin.stdlib)
 
     testImplementation(Deps.Test.assertJ)
