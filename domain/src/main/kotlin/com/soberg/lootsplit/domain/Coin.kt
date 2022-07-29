@@ -35,5 +35,15 @@ enum class Coin(
 
     companion object {
         val Base = Copper
+
+        fun fromString(value: String): Coin? {
+            val lowercase = value.lowercase()
+            for (coin in values()) {
+                if (coin.aliases.contains(lowercase)) {
+                    return coin
+                }
+            }
+            return null
+        }
     }
 }
