@@ -3,10 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(Deps.discord4J)
-    implementation(Deps.Kotlin.stdlib)
+    implementation(libs.discord4j)
+    implementation(libs.kotlin.stdlib)
 
-    testImplementation(Deps.Test.assertJ)
-    testImplementation(Deps.Test.junitApi)
-    testImplementation(Deps.Test.junitEngine)
+    testImplementation(libs.bundles.test)
 }

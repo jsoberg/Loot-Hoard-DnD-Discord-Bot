@@ -4,9 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation(Deps.Kotlin.stdlib)
+    implementation(libs.kotlin.stdlib)
 
-    testImplementation(Deps.Test.assertJ)
-    testImplementation(Deps.Test.junitApi)
-    testImplementation(Deps.Test.junitEngine)
+    testImplementation(libs.bundles.test)
 }

@@ -1,0 +1,21 @@
+[versions]
+discord4j = "3.2.2"
+kotlin = "1.7.10"
+assertj = "3.23.1"
+junit = "5.8.2"
+
+[libraries]
+# Discord
+discord4j = { module = "com.discord4j:discord4j-core", version.ref = "discord4j" }
+
+# Kotlin
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+
+# Test
+test-assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+test-junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+test-junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+
+[bundles]
+test = ["test-assertj", "test-junit-api", "test-junit-engine"]
