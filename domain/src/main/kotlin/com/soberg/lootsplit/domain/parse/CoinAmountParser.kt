@@ -7,7 +7,7 @@ import java.util.*
 internal class CoinAmountParser {
 
     companion object {
-        private val SkipCharacters = listOf(' ', ',', '_')
+        private val SkipCharacters = listOf(' ', '_')
     }
 
     fun parse(value: String): Result<CoinAmount> = runCatching {

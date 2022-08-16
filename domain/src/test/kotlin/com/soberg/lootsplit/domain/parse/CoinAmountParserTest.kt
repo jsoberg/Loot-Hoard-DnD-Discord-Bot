@@ -31,17 +31,10 @@ internal class CoinAmountParserTest {
     }
 
     @Test
-    fun `successfully parse with commas`() {
-        assertThat(parseSuccess("1,000g")).isEqualTo(CoinAmount(1000, Coin.Gold))
-        assertThat(parseSuccess("200,000 Platinum")).isEqualTo(CoinAmount(200_000, Coin.Platinum))
-        assertThat(parseSuccess("9,00,000ep")).isEqualTo(CoinAmount(900_000, Coin.Electrum))
-    }
-
-    @Test
     fun `successfully parse with underscores`() {
         assertThat(parseSuccess("1_000S")).isEqualTo(CoinAmount(1000, Coin.Silver))
         assertThat(parseSuccess("__200_000_Copper")).isEqualTo(CoinAmount(200_000, Coin.Copper))
-        assertThat(parseSuccess("9_100,000ep")).isEqualTo(CoinAmount(9_100_000, Coin.Electrum))
+        assertThat(parseSuccess("9_100000ep")).isEqualTo(CoinAmount(9_100_000, Coin.Electrum))
     }
 
     @Test
