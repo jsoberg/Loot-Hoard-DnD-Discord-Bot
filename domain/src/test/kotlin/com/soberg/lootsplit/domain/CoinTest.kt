@@ -33,4 +33,14 @@ internal class CoinTest {
     fun `return null for unknown string`() {
         assertThat(Coin.fromString("NotACoin")).isNull()
     }
+
+
+    @Test
+    fun `convert to expected base amounts`() {
+        assertThat(Platinum.toBaseCoinAmount(10).amount).isEqualTo(10_000L)
+        assertThat(Gold.toBaseCoinAmount(10).amount).isEqualTo(1_000L)
+        assertThat(Electrum.toBaseCoinAmount(10).amount).isEqualTo(500L)
+        assertThat(Silver.toBaseCoinAmount(10).amount).isEqualTo(100L)
+        assertThat(Copper.toBaseCoinAmount(10).amount).isEqualTo(10L)
+    }
 }
