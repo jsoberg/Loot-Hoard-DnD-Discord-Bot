@@ -37,10 +37,19 @@ internal class CoinTest {
 
     @Test
     fun `convert to expected base amounts`() {
-        assertThat(Platinum.toBaseCoinAmount(10).amount).isEqualTo(10_000L)
-        assertThat(Gold.toBaseCoinAmount(10).amount).isEqualTo(1_000L)
-        assertThat(Electrum.toBaseCoinAmount(10).amount).isEqualTo(500L)
-        assertThat(Silver.toBaseCoinAmount(10).amount).isEqualTo(100L)
-        assertThat(Copper.toBaseCoinAmount(10).amount).isEqualTo(10L)
+        assertThat(Platinum.toBaseCoinAmount(10)).isEqualTo(10_000L)
+        assertThat(Gold.toBaseCoinAmount(10)).isEqualTo(1_000L)
+        assertThat(Electrum.toBaseCoinAmount(10)).isEqualTo(500L)
+        assertThat(Silver.toBaseCoinAmount(10)).isEqualTo(100L)
+        assertThat(Copper.toBaseCoinAmount(10)).isEqualTo(10L)
+    }
+
+    @Test
+    fun `have expected coin value hierarchy`() {
+        assertThat(Copper.nextHighestValueCoin).isEqualTo(Silver)
+        assertThat(Silver.nextHighestValueCoin).isEqualTo(Electrum)
+        assertThat(Electrum.nextHighestValueCoin).isEqualTo(Gold)
+        assertThat(Gold.nextHighestValueCoin).isEqualTo(Platinum)
+        assertThat(Platinum.nextHighestValueCoin).isNull()
     }
 }

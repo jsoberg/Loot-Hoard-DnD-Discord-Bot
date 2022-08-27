@@ -34,6 +34,6 @@ internal class LootSummationTest {
         }
 
         // (10 * 1000) + (20 * 100) + (30 * 50) + (40 * 10) + (50 * 1)
-        assertThat(summation.splitToBase().amount).isEqualTo(13_950L)
+        assertThat(summation.splitToBase()).isEqualTo(13_950L)
     }
 }

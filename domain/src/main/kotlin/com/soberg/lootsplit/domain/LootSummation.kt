@@ -4,15 +4,13 @@ class LootSummation private constructor(
     private val coinAmountMap: Map<Coin, Long>,
 ) : Map<Coin, Long> by coinAmountMap {
 
-    fun splitToBase(): CoinAmount {
+    /** @return This [LootSummation] split to the base coin of [Coin.Copper]. */
+    fun splitToBase(): Long {
         var total = 0L
         for ((coin, amount) in coinAmountMap) {
-            total += coin.toBaseCoinAmount(amount).amount
+            total += coin.toBaseCoinAmount(amount)
         }
-        return CoinAmount(
-            amount = total,
-            coin = Coin.Base,
-        )
+        return total
     }
 
     companion object {
