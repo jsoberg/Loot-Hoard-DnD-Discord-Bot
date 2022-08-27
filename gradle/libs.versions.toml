@@ -1,5 +1,5 @@
 [versions]
-discord4j = "3.2.2"
+discord4j = "3.2.3"
 kotlin = "1.7.10"
 assertj = "3.23.1"
 junit = "5.8.2"
