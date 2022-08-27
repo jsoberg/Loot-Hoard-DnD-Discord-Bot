@@ -1,6 +1,6 @@
 package com.soberg.lootsplit.domain
 
-import org.assertj.core.api.Assertions.assertThat
+import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.Test
 
 internal class LootSummationTest {

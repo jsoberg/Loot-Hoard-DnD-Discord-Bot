@@ -6,5 +6,5 @@ plugins {
 dependencies {
     implementation(libs.kotlin.stdlib)
 
-    testImplementation(libs.bundles.test)
+    testImplementation(libs.bundles.unitTest)
 }

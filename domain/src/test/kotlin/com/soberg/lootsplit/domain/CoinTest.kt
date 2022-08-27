@@ -1,7 +1,7 @@
 package com.soberg.lootsplit.domain
 
+import com.google.common.truth.Truth.assertThat
 import com.soberg.lootsplit.domain.Coin.*
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 internal class CoinTest {

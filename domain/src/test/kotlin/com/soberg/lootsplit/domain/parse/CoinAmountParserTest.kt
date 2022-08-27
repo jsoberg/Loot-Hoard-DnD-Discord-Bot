@@ -1,8 +1,8 @@
 package com.soberg.lootsplit.domain.parse
 
+import com.google.common.truth.Truth.assertThat
 import com.soberg.lootsplit.domain.Coin
 import com.soberg.lootsplit.domain.CoinAmount
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 internal class CoinAmountParserTest {
@@ -40,35 +40,38 @@ internal class CoinAmountParserTest {
     @Test
     fun `return error for random value`() {
         val parse = parser.parse("IEHFW W3FE WEFU3UW8 3823")
-        assertThat(parse.isFailure).isTrue
-        assertThat(parse.exceptionOrNull()).hasMessage("Cannot parse coin name from \"IEHFW W3FE WEFU3UW8 3823\"")
+        assertThat(parse.isFailure).isTrue()
+        assertThat(parse.exceptionOrNull()).hasMessageThat()
+            .contains("Cannot parse coin name from \"IEHFW W3FE WEFU3UW8 3823\"")
     }
 
     @Test
     fun `return error for invalid coin name`() {
         val parse = parser.parse("10000gg")
-        assertThat(parse.isFailure).isTrue
-        assertThat(parse.exceptionOrNull()).hasMessage("Cannot parse coin name from \"10000gg\"")
+        assertThat(parse.isFailure).isTrue()
+        assertThat(parse.exceptionOrNull()).hasMessageThat()
+            .contains("Cannot parse coin name from \"10000gg\"")
     }
 
     @Test
     fun `return error for invalid coin amount`() {
         val parse = parser.parse("1B0000gp")
-        assertThat(parse.isFailure).isTrue
-        assertThat(parse.exceptionOrNull()).hasMessage("Invalid format for amount value \"1B0000\"")
+        assertThat(parse.isFailure).isTrue()
+        assertThat(parse.exceptionOrNull()).hasMessageThat()
+            .contains("Invalid format for amount value \"1B0000\"")
     }
 
     @Test
     fun `return error for no specified coin name`() {
         val parse = parser.parse("10000")
-        assertThat(parse.isFailure).isTrue
-        assertThat(parse.exceptionOrNull()).hasMessage("Cannot parse coin name from \"10000\"")
+        assertThat(parse.isFailure).isTrue()
+        assertThat(parse.exceptionOrNull()).hasMessageThat()
+            .contains("Cannot parse coin name from \"10000\"")
     }
 
     private fun parseSuccess(value: String): CoinAmount {
         val parsed = parser.parse(value)
-        assertThat(parsed.isSuccess).isTrue
+        assertThat(parsed.isSuccess).isTrue()
         return parsed.getOrThrow()
     }
-
 }

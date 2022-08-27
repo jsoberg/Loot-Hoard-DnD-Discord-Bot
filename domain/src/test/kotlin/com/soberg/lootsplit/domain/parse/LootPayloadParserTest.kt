@@ -1,7 +1,7 @@
 package com.soberg.lootsplit.domain.parse
 
+import com.google.common.truth.Truth.assertThat
 import com.soberg.lootsplit.domain.Coin
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 internal class LootPayloadParserTest {
@@ -14,7 +14,7 @@ internal class LootPayloadParserTest {
     @Test
     fun `parse and sum coin amounts successfully`() {
         val summationResult = lootPayloadParser.parse("87 Platinum,12gp,100g,1ep,34ep,4cp")
-        assertThat(summationResult.isSuccess).isTrue
+        assertThat(summationResult.isSuccess).isTrue()
         val summation = summationResult.getOrThrow()
         assertThat(summation[Coin.Platinum]).isEqualTo(87L)
         assertThat(summation[Coin.Gold]).isEqualTo(112L)
@@ -26,7 +26,7 @@ internal class LootPayloadParserTest {
     @Test
     fun `ignore empty entries`() {
         val summationResult = lootPayloadParser.parse("87 Platinum,,,,12sp,12s, 12 silver")
-        assertThat(summationResult.isSuccess).isTrue
+        assertThat(summationResult.isSuccess).isTrue()
         val summation = summationResult.getOrThrow()
         assertThat(summation[Coin.Platinum]).isEqualTo(87L)
         assertThat(summation[Coin.Gold]).isNull()
@@ -38,6 +38,6 @@ internal class LootPayloadParserTest {
     @Test
     fun `return failure result if only one coin amount fails to parse`() {
         val summationResult = lootPayloadParser.parse("8pp,12sp,3gp,60zorps")
-        assertThat(summationResult.isFailure).isTrue
+        assertThat(summationResult.isFailure).isTrue()
     }
 }
