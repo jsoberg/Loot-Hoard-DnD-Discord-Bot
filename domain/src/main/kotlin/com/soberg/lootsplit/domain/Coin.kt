@@ -2,42 +2,49 @@ package com.soberg.lootsplit.domain
 
 /** Describes the available coins that we can split.
  * @param baseCopperValue The amount of [Copper] (our base) that 1 of this Coin is worth.
+ * @param humanReadableIdentifier A human readable String that will be used to represent this value to a user.
  * @param aliases A set of aliases that can represent this Coin, ignoring case.
  */
 enum class Coin(
     val baseCopperValue: Int,
+    val humanReadableIdentifier: String,
     val aliases: Set<String>,
 ) {
     Copper(
         baseCopperValue = 1,
+        humanReadableIdentifier = "Copper",
         aliases = setOf("c", "cp", "copper")
     ),
 
     /** 1sp = 10cp */
     Silver(
         baseCopperValue = 10,
+        humanReadableIdentifier = "Silver",
         aliases = setOf("s", "sp", "silver")
     ),
 
     /** 1ep = 5sp = 50cp */
     Electrum(
         baseCopperValue = 50,
+        humanReadableIdentifier = "Electrum",
         aliases = setOf("e", "ep", "electrum")
     ),
 
     /** 1gp = 2ep = 10sp = 100cp */
     Gold(
         baseCopperValue = 100,
+        humanReadableIdentifier = "Gold",
         aliases = setOf("g", "gp", "gold")
     ),
 
     /** 1pp = 10gp = 20ep = 100sp = 1000cp */
     Platinum(
         baseCopperValue = 1000,
+        humanReadableIdentifier = "Platinum",
         aliases = setOf("p", "pp", "platinum")
     );
 
-    /** @return The amount of [Base]'s value that [amount] represents when converted from this Coin to [Copper], the base [Coin].
+    /** @return The amount of [Copper]'s value that [amount] represents when converted from this Coin to [Copper], the base [Coin].
      * Example: [Gold.toBaseCoinAmount] with an amount of 10 would return 1000, since 10 [Gold] converted to the base [Copper] is (10 * 100) [Copper].
      */
     fun toBaseCoinAmount(amount: Long): Long = (baseCopperValue * amount)
