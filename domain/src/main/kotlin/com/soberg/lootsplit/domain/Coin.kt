@@ -5,7 +5,7 @@ package com.soberg.lootsplit.domain
  * @param aliases A set of aliases that can represent this Coin, ignoring case.
  */
 enum class Coin(
-    private val baseCopperValue: Int,
+    val baseCopperValue: Int,
     val aliases: Set<String>,
 ) {
     Copper(
@@ -52,6 +52,18 @@ enum class Coin(
             Electrum -> Gold
             Gold -> Platinum
             Platinum -> null
+        }
+
+    /** The next lowest value [Coin] available in comparison to this [Coin], or null if this is the lowest value [Coin].
+     * Example: [Silver.nextLowestValueCoin] is [Copper], since [Copper] is the next coin down in the value hierarchy from [Silver].
+     */
+    val nextLowestValueCoin: Coin?
+        get() = when (this) {
+            Platinum -> Gold
+            Gold -> Electrum
+            Electrum -> Silver
+            Silver -> Copper
+            Copper -> null
         }
 
     companion object {

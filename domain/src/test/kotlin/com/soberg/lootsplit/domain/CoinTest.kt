@@ -45,11 +45,20 @@ internal class CoinTest {
     }
 
     @Test
-    fun `have expected coin value hierarchy`() {
+    fun `have expected coin value up hierarchy`() {
         assertThat(Copper.nextHighestValueCoin).isEqualTo(Silver)
         assertThat(Silver.nextHighestValueCoin).isEqualTo(Electrum)
         assertThat(Electrum.nextHighestValueCoin).isEqualTo(Gold)
         assertThat(Gold.nextHighestValueCoin).isEqualTo(Platinum)
         assertThat(Platinum.nextHighestValueCoin).isNull()
+    }
+
+    @Test
+    fun `have expected coin value down hierarchy`() {
+        assertThat(Platinum.nextLowestValueCoin).isEqualTo(Gold)
+        assertThat(Gold.nextLowestValueCoin).isEqualTo(Electrum)
+        assertThat(Electrum.nextLowestValueCoin).isEqualTo(Silver)
+        assertThat(Silver.nextLowestValueCoin).isEqualTo(Copper)
+        assertThat(Copper.nextLowestValueCoin).isNull()
     }
 }
