@@ -2,8 +2,8 @@ package com.soberg.lootsplit.domain.parse
 
 import com.soberg.lootsplit.domain.LootSummation
 
-internal class LootPayloadParser constructor(
-    private val coinAmountParser: CoinAmountParser,
+class LootPayloadParser(
+    private val coinAmountParser: CoinAmountParser = CoinAmountParser(),
 ) {
 
     fun parse(payload: String): Result<LootSummation> = runCatching {

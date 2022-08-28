@@ -19,7 +19,7 @@ object LootSplitCommandHandler {
         val csv = event.getOption(LootSplitCommand.LootOptionName)
             .flatMap(ApplicationCommandInteractionOption::getValue)
             .map(ApplicationCommandInteractionOptionValue::asString)
-            .orElse("Nothing")
+            .orElse("")
         return event.reply()
             .withEphemeral(true)
             .withContent("Command received, $numPlayers and {$csv}")

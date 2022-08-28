@@ -4,7 +4,7 @@ import com.soberg.lootsplit.domain.Coin
 import com.soberg.lootsplit.domain.CoinAmount
 import java.util.*
 
-internal class CoinAmountParser {
+class CoinAmountParser {
 
     companion object {
         private val SkipCharacters = listOf(' ', '_')
