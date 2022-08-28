@@ -13,6 +13,18 @@ class LootSummation private constructor(
         return total
     }
 
+    /** @return A List of [CoinAmount]'s representing this [LootSummation], starting with the
+     * highest value coin at index 0 and ending with the lowest value coin. */
+    fun inDescendingValueSortedOrder(): List<CoinAmount> = buildList {
+        var currentCoin: Coin? = Coin.Platinum
+        while (currentCoin != null) {
+            coinAmountMap[currentCoin]?.let { amount ->
+                add(CoinAmount(amount, currentCoin!!))
+            }
+            currentCoin = currentCoin.nextLowestValueCoin
+        }
+    }
+
     companion object {
         fun build(block: Builder.() -> Unit): LootSummation =
             Builder().apply(block)

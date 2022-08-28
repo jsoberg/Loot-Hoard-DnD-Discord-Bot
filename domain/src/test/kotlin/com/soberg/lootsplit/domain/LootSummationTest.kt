@@ -48,11 +48,29 @@ internal class LootSummationTest {
     }
 
     @Test
-    fun `adding 0 results in null`() {
+    fun `add nothing if 0 specified`() {
         val summation = LootSummation.build {
             add(CoinAmount(0L, Coin.Gold))
             add(CoinAmount(0L, Coin.Gold))
         }
         assertThat(summation[Coin.Gold]).isNull()
+    }
+
+    @Test
+    fun `return sorted list of coin amounts`() {
+        val summation = LootSummation.build {
+            add(CoinAmount(1L, Coin.Electrum))
+            add(CoinAmount(2L, Coin.Silver))
+            add(CoinAmount(3L, Coin.Platinum))
+            add(CoinAmount(4L, Coin.Copper))
+            add(CoinAmount(5L, Coin.Gold))
+        }
+        assertThat(summation.inDescendingValueSortedOrder()).containsExactly(
+            CoinAmount(3L, Coin.Platinum),
+            CoinAmount(5L, Coin.Gold),
+            CoinAmount(1L, Coin.Electrum),
+            CoinAmount(2L, Coin.Silver),
+            CoinAmount(4L, Coin.Copper),
+        ).inOrder()
     }
 }
