@@ -36,4 +36,23 @@ internal class LootSummationTest {
         // (10 * 1000) + (20 * 100) + (30 * 50) + (40 * 10) + (50 * 1)
         assertThat(summation.splitToBase()).isEqualTo(13_950L)
     }
+
+    @Test
+    fun `add amounts as expected`() {
+        val summation = LootSummation.build {
+            add(CoinAmount(10L, Coin.Platinum))
+            add(CoinAmount(1L, Coin.Platinum))
+            add(CoinAmount(2L, Coin.Platinum))
+        }
+        assertThat(summation[Coin.Platinum]).isEqualTo(13L)
+    }
+
+    @Test
+    fun `adding 0 results in null`() {
+        val summation = LootSummation.build {
+            add(CoinAmount(0L, Coin.Gold))
+            add(CoinAmount(0L, Coin.Gold))
+        }
+        assertThat(summation[Coin.Gold]).isNull()
+    }
 }

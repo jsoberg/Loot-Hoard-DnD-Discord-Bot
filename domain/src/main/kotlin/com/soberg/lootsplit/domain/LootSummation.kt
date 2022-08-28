@@ -19,12 +19,19 @@ class LootSummation private constructor(
                 .build()
     }
 
-    class Builder internal constructor() {
+    class Builder {
         private val coinAmountMap: MutableMap<Coin, Long> = mutableMapOf()
 
         fun add(coinAmount: CoinAmount): Builder = apply {
             val current = coinAmountMap[coinAmount.coin] ?: 0L
-            coinAmountMap[coinAmount.coin] = current + coinAmount.amount
+            val newAmount = current + coinAmount.amount
+            if (newAmount != 0L) {
+                coinAmountMap[coinAmount.coin] = current + coinAmount.amount
+            }
+        }
+
+        fun add(amount: Long, coin: Coin): Builder = apply {
+            add(CoinAmount(amount, coin))
         }
 
         fun build() = LootSummation(coinAmountMap.toMap())
