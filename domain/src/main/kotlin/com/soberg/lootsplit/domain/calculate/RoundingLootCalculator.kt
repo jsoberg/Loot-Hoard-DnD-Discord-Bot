@@ -33,6 +33,7 @@ class RoundingLootCalculator(
         }
         return LootCalculator.Result(
             numPlayers = numPlayers,
+            originalPayload = loot,
             lootPerPlayer = lootBuilder.build(),
             leftoverLoot = LootSummation.build { add(leftoverCopper, Coin.Copper) },
         )

@@ -30,7 +30,10 @@ class LootSplitCommandProcessor(
     )
 
     private fun toOutputString(result: LootCalculator.Result): String {
-        val outputBuilder = StringBuilder()
+        val original = result.originalPayload.inDescendingValueSortedOrder()
+            .joinToString(separator = ", ", lastSeparator = ", and ")
+        val outputBuilder =
+            StringBuilder("Splitting $original amongst ${result.numPlayers} players...\n")
 
         if (result.lootPerPlayer.isEmpty()) {
             outputBuilder.append("No loot could be evenly split amongst the players. ")
@@ -45,7 +48,8 @@ class LootSplitCommandProcessor(
         if (result.leftoverLoot?.isNotEmpty() == true) {
             val joined = result.leftoverLoot?.inDescendingValueSortedOrder()
                 ?.joinToString(separator = ", ", lastSeparator = ", and ")
-            outputBuilder.append(joined)
+            outputBuilder.appendLine()
+                .append(joined)
                 .append(" is leftover after splitting evenly.")
         }
 
