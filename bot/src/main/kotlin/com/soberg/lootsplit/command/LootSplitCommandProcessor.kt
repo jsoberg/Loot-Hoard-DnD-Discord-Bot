@@ -43,8 +43,8 @@ class LootSplitCommandProcessor(
         }
 
         if (result.leftoverLoot?.isNotEmpty() == true) {
-            val joined = result.lootPerPlayer.inDescendingValueSortedOrder()
-                .joinToString(separator = ", ", lastSeparator = ", and ")
+            val joined = result.leftoverLoot?.inDescendingValueSortedOrder()
+                ?.joinToString(separator = ", ", lastSeparator = ", and ")
             outputBuilder.append(joined)
                 .append(" is leftover after splitting evenly.")
         }
