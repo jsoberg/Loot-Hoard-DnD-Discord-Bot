@@ -1,5 +1,8 @@
+// Temporary fix for https://youtrack.jetbrains.com/issue/KTIJ-19369
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     kotlin("jvm")
+    alias(libs.plugins.springBoot)
 }
 
 dependencies {
@@ -8,6 +11,7 @@ dependencies {
 
     implementation(libs.discord4j)
     implementation(libs.kotlin.stdlib)
+    implementation(libs.springBoot.web)
 
     testImplementation(libs.bundles.unitTest)
 }
