@@ -6,7 +6,7 @@ D&amp;D game, based off of the coins and values from traditional D&amp;D rules.
 Once added to a Discord server, users can trigger the `/split` command with two parameters:
 - `players` -> The number of players to split the loot for (e.g. `4`)
 - `loot` -> The actual loot you want split, in a comma separated list (e.g. `10p,20g,40e,80s,160c`)
-    - See the [Coin](https://github.com/jsoberg/Loot-Split-Discord-Bot/blob/main/domain/src/main/kotlin/com/soberg/lootsplit/domain/Coin.kt) class for the various identifiers that can be used for different coins. As an example, `10 Gold`, `10g`, and `10gp` will all be recognized as 10 Gold coins.
+    - See the [Coin](https://github.com/jsoberg/Loot-Split-Discord-Bot/blob/main/domain/src/main/kotlin/com/soberg/loothoard/domain/Coin.kt) class for the various identifiers that can be used for different coins. As an example, `10 Gold`, `10g`, and `10gp` will all be recognized as 10 Gold coins.
 
 The bot will then respond with a message indicating the calculated loot for each player, and any leftover (if the loot couldn't be evenly split).
 
