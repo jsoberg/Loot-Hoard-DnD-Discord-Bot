@@ -24,5 +24,14 @@ jobs:
         run: chmod +x gradlew
       - name: Run Gradle build
         run: ./gradlew build
+
       - name: Run tests
         run: ./gradlew test
+
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+        with:
+          coverageCommand: ./gradlew koverMergedXmlReport
+          coverageLocations: ${{github.workspace}}/build/kover/kover/coverage.xml:jacoco
