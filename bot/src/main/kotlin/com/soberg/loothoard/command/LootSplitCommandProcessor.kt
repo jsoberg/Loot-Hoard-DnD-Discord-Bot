@@ -15,7 +15,7 @@ class LootSplitCommandProcessor(
         lootPayload: String,
     ): String = runCatching {
         if (numPlayers <= 0) {
-            error("Cannot split loot for $numPlayers players")
+            error("$numPlayers is an invalid number of players")
         }
 
         val loot = parser.parse(lootPayload).getOrThrow()
@@ -35,14 +35,15 @@ class LootSplitCommandProcessor(
         val outputBuilder =
             StringBuilder("Splitting $original amongst ${result.numPlayers} players...\n")
 
-        if (result.lootPerPlayer.isEmpty()) {
-            outputBuilder.append("No loot could be evenly split amongst the players. ")
+        val wasSplitEvenly = result.lootPerPlayer.isNotEmpty()
+        if (!wasSplitEvenly) {
+            outputBuilder.append("No loot could be evenly split amongst the players.")
         } else {
             outputBuilder.append("Each player receives ")
             val joined = result.lootPerPlayer.inDescendingValueSortedOrder()
                 .joinToString(separator = ", ", lastSeparator = ", and ")
             outputBuilder.append(joined)
-                .append(". ")
+                .append(".")
         }
 
         if (result.leftoverLoot?.isNotEmpty() == true) {
@@ -50,7 +51,12 @@ class LootSplitCommandProcessor(
                 ?.joinToString(separator = ", ", lastSeparator = ", and ")
             outputBuilder.appendLine()
                 .append(joined)
-                .append(" is leftover after splitting evenly.")
+                .append(" is leftover")
+            if (wasSplitEvenly) {
+                outputBuilder.append(" after being split evenly.")
+            } else {
+                outputBuilder.append(".")
+            }
         }
 
         return outputBuilder.toString()
