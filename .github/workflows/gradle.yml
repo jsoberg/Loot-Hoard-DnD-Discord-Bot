@@ -3,14 +3,12 @@
 name: Gradle Build & Test
 
 on:
-
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -26,10 +24,5 @@ jobs:
         run: chmod +x gradlew
       - name: Run Gradle build
         run: ./gradlew build
-
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: Run tests
         run: ./gradlew test
