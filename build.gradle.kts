@@ -46,4 +46,8 @@ extensions.configure<KoverMergedConfig> {
         enable()
         reportDir.set(layout.buildDirectory.dir("kover/html"))
     }
+    xmlReport {
+        enable()
+        reportFile.set(layout.buildDirectory.file("kover/coverage.xml"))
+    }
 }
