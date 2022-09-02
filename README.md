@@ -1,5 +1,7 @@
 # Loot Hoard
 
+![build and test status](https://github.com/jsoberg/Loot-Hoard-DnD-Discord-Bot/actions/workflows/gradle.yml/badge.svg?branch=main)
+
 Loot Hoard is a Discord bot that can automatically split loot amongst any number of players in a
 D&amp;D game, based off of the coins and values from traditional D&amp;D rules.
 
