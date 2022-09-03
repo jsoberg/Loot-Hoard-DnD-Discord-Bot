@@ -42,6 +42,13 @@ allprojects {
 
 extensions.configure<KoverMergedConfig> {
     enable()
+    filters {
+        projects {
+            // Bot should almost exclusively deal with Discord dependencies, so don't include it in the test report.
+            excludes += listOf(":bot")
+        }
+    }
+
     htmlReport {
         enable()
         reportDir.set(layout.buildDirectory.dir("kover/html"))
