@@ -2,6 +2,8 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     kotlin("jvm")
+    alias(libs.plugins.kotlin.allOpen)
+    alias(libs.plugins.kotlin.spring)
     alias(libs.plugins.springBoot)
 }
 

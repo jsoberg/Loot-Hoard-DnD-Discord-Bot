@@ -12,13 +12,13 @@ import org.springframework.context.annotation.Bean
 
 @SpringBootApplication
 @EnableConfigurationProperties(DiscordProperties::class)
-open class BotApplication {
+class BotApplication {
 
     @Autowired
     lateinit var discordProperties: DiscordProperties
 
     @Bean
-    open fun gatewayDiscordClient(): GatewayDiscordClient {
+    fun gatewayDiscordClient(): GatewayDiscordClient {
         val token = discordProperties.botToken
             ?: error("Discord bot token not provided, stopping...")
         return DiscordClientBuilder.create(token)
@@ -28,7 +28,7 @@ open class BotApplication {
     }
 
     @Bean
-    open fun commandHandler(): LootSplitCommandHandler = LootSplitCommandHandler()
+    fun commandHandler(): LootSplitCommandHandler = LootSplitCommandHandler()
 }
 
 fun main() {

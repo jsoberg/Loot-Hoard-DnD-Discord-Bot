@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 @ConfigurationProperties(prefix = "discord")
-open class DiscordProperties {
+class DiscordProperties {
 
     var botToken: String? = null
 
