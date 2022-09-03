@@ -3,19 +3,24 @@ package com.soberg.loothoard
 import com.soberg.loothoard.command.LootSplitCommandHandler
 import discord4j.core.DiscordClientBuilder
 import discord4j.core.GatewayDiscordClient
-import org.springframework.boot.ApplicationArguments
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.builder.SpringApplicationBuilder
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 
 
 @SpringBootApplication
+@EnableConfigurationProperties(DiscordProperties::class)
 open class BotApplication {
 
+    @Autowired
+    lateinit var discordProperties: DiscordProperties
+
     @Bean
-    open fun gatewayDiscordClient(args: ApplicationArguments): GatewayDiscordClient {
-        // TODO: Identify how we want to store/retrieve the private token.
-        val token = args.sourceArgs[0]
+    open fun gatewayDiscordClient(): GatewayDiscordClient {
+        val token = discordProperties.botToken
+            ?: error("Discord bot token not provided, stopping...")
         return DiscordClientBuilder.create(token)
             .build()
             .login()
@@ -26,13 +31,8 @@ open class BotApplication {
     open fun commandHandler(): LootSplitCommandHandler = LootSplitCommandHandler()
 }
 
-fun main(args: Array<String>) {
-    if (args.isEmpty()) {
-        println("Token required")
-        return
-    }
-
+fun main() {
     SpringApplicationBuilder(BotApplication::class.java)
         .build()
-        .run(*args)
+        .run()
 }
