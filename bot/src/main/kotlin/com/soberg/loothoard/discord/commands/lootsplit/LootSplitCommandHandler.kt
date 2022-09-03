@@ -1,8 +1,8 @@
 package com.soberg.loothoard.discord.commands.lootsplit
 
+import com.soberg.loothoard.discord.commands.getLongOrElse
+import com.soberg.loothoard.discord.commands.getStringOrElse
 import com.soberg.loothoard.domain.lootsplit.LootSplitProcessor
-import discord4j.core.`object`.command.ApplicationCommandInteractionOption
-import discord4j.core.`object`.command.ApplicationCommandInteractionOptionValue
 import discord4j.core.event.domain.interaction.ChatInputInteractionEvent
 import reactor.core.publisher.Mono
 
@@ -15,15 +15,8 @@ class LootSplitCommandHandler(
             return Mono.empty()
         }
 
-        val numPlayers = event.getOption(LootSplitCommandFactory.NumPlayersOptionName)
-            .flatMap(ApplicationCommandInteractionOption::getValue)
-            .map(ApplicationCommandInteractionOptionValue::asLong)
-            .orElse(-1L)
-        val csv = event.getOption(LootSplitCommandFactory.LootOptionName)
-            .flatMap(ApplicationCommandInteractionOption::getValue)
-            .map(ApplicationCommandInteractionOptionValue::asString)
-            .orElse("")
-
+        val numPlayers = event.getLongOrElse(LootSplitCommandFactory.NumPlayersOptionName, -1L)
+        val csv = event.getStringOrElse(LootSplitCommandFactory.LootOptionName, "")
         return event.reply()
             .withEphemeral(true)
             .withContent(

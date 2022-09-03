@@ -1,7 +1,7 @@
 package com.soberg.loothoard.discord.commands.lootsplit
 
+import com.soberg.loothoard.discord.commands.addRequiredOption
 import discord4j.core.`object`.command.ApplicationCommandOption
-import discord4j.discordjson.json.ApplicationCommandOptionData
 import discord4j.discordjson.json.ApplicationCommandRequest
 
 object LootSplitCommandFactory {
@@ -14,21 +14,15 @@ object LootSplitCommandFactory {
         ApplicationCommandRequest.builder()
             .name(CommandName)
             .description("Splits D&D loot amongst players")
-            .addOption(
-                ApplicationCommandOptionData.builder()
-                    .name(NumPlayersOptionName)
-                    .description("Number of players to split loot for")
-                    .type(ApplicationCommandOption.Type.INTEGER.value)
-                    .required(true)
-                    .build()
+            .addRequiredOption(
+                name = NumPlayersOptionName,
+                description = "Number of players to split loot for",
+                type = ApplicationCommandOption.Type.INTEGER,
             )
-            .addOption(
-                ApplicationCommandOptionData.builder()
-                    .name(LootOptionName)
-                    .description("Comma separated list of loot to split (e.g. 100g,40s,5c)")
-                    .type(ApplicationCommandOption.Type.STRING.value)
-                    .required(true)
-                    .build()
+            .addRequiredOption(
+                name = LootOptionName,
+                description = "Comma separated list of loot to split (e.g. 100g,40s,5c)",
+                type = ApplicationCommandOption.Type.STRING,
             )
             .build()
 }
