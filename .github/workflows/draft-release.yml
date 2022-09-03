@@ -32,7 +32,7 @@ jobs:
       - name: Bump project version in gradle.properties
         uses: jacobtomlinson/gha-find-replace@v2
         with:
-          find: "version=**"
+          find: "version=*"
           replace: "version=${{ github.event.inputs.version }}"
           include: "gradle.properties"
           regex: true
