@@ -18,7 +18,7 @@ class LootSplitCommandHandler(
         val numPlayers = event.getLongOrElse(LootSplitCommandFactory.NumPlayersOptionName, -1L)
         val csv = event.getStringOrElse(LootSplitCommandFactory.LootOptionName, "")
         return event.reply()
-            .withEphemeral(true)
+            .withEphemeral(false)
             .withContent(
                 lootSplitProcessor.process(
                     numPlayers = numPlayers.toInt(),
