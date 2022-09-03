@@ -1,10 +1,10 @@
-package com.soberg.loothoard.command
+package com.soberg.loothoard.discord.commands.lootsplit
 
 import discord4j.core.`object`.command.ApplicationCommandOption
 import discord4j.discordjson.json.ApplicationCommandOptionData
 import discord4j.discordjson.json.ApplicationCommandRequest
 
-object LootSplitCommand {
+object LootSplitCommandFactory {
 
     const val CommandName = "split"
     const val NumPlayersOptionName = "players"

@@ -1,16 +1,16 @@
-package com.soberg.loothoard.command
+package com.soberg.loothoard.domain.lootsplit
 
 import com.google.common.truth.Truth.assertThat
-import com.soberg.loothoard.domain.calculate.RoundingLootCalculator
+import com.soberg.loothoard.domain.lootsplit.calculate.RoundingLootCalculator
 import com.soberg.loothoard.domain.parse.LootPayloadParser
 import org.junit.jupiter.api.Test
 
-internal class LootSplitCommandProcessorTest {
+internal class LootSplitProcessorTest {
 
     private val parser = LootPayloadParser()
     private val calculator = RoundingLootCalculator()
 
-    private val processor = LootSplitCommandProcessor(
+    private val processor = LootSplitProcessor(
         parser = parser,
         calculator = calculator,
     )

@@ -1,6 +1,6 @@
 package com.soberg.loothoard
 
-import com.soberg.loothoard.command.LootSplitCommandHandler
+import com.soberg.loothoard.discord.DiscordProperties
 import discord4j.core.DiscordClientBuilder
 import discord4j.core.GatewayDiscordClient
 import org.springframework.beans.factory.annotation.Autowired
@@ -26,9 +26,6 @@ class BotApplication {
             .login()
             .block()!!
     }
-
-    @Bean
-    fun commandHandler(): LootSplitCommandHandler = LootSplitCommandHandler()
 }
 
 fun main() {

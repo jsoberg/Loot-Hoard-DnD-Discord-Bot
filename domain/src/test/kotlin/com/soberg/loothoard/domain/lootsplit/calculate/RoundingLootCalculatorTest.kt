@@ -1,4 +1,4 @@
-package com.soberg.loothoard.domain.calculate
+package com.soberg.loothoard.domain.lootsplit.calculate
 
 import com.google.common.truth.Truth.assertThat
 import com.soberg.loothoard.domain.Coin

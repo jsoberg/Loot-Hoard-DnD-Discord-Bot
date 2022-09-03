@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     implementation(libs.kotlin.stdlib)
+    implementation(projects.utils)
 
     testImplementation(libs.bundles.unitTest)
 }

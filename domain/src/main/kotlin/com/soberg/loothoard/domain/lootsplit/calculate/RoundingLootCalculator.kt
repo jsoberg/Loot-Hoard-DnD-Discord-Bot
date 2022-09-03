@@ -1,4 +1,4 @@
-package com.soberg.loothoard.domain.calculate
+package com.soberg.loothoard.domain.lootsplit.calculate
 
 import com.soberg.loothoard.domain.Coin
 import com.soberg.loothoard.domain.LootSummation

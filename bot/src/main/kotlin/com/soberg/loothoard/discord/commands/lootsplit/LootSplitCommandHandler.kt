@@ -1,24 +1,25 @@
-package com.soberg.loothoard.command
+package com.soberg.loothoard.discord.commands.lootsplit
 
+import com.soberg.loothoard.domain.lootsplit.LootSplitProcessor
 import discord4j.core.`object`.command.ApplicationCommandInteractionOption
 import discord4j.core.`object`.command.ApplicationCommandInteractionOptionValue
 import discord4j.core.event.domain.interaction.ChatInputInteractionEvent
 import reactor.core.publisher.Mono
 
 class LootSplitCommandHandler(
-    private val lootSplitCommandProcessor: LootSplitCommandProcessor = LootSplitCommandProcessor(),
+    private val lootSplitProcessor: LootSplitProcessor,
 ) {
 
     fun handle(event: ChatInputInteractionEvent): Mono<Void> {
-        if (event.commandName != LootSplitCommand.CommandName) {
+        if (event.commandName != LootSplitCommandFactory.CommandName) {
             return Mono.empty()
         }
 
-        val numPlayers = event.getOption(LootSplitCommand.NumPlayersOptionName)
+        val numPlayers = event.getOption(LootSplitCommandFactory.NumPlayersOptionName)
             .flatMap(ApplicationCommandInteractionOption::getValue)
             .map(ApplicationCommandInteractionOptionValue::asLong)
             .orElse(-1L)
-        val csv = event.getOption(LootSplitCommand.LootOptionName)
+        val csv = event.getOption(LootSplitCommandFactory.LootOptionName)
             .flatMap(ApplicationCommandInteractionOption::getValue)
             .map(ApplicationCommandInteractionOptionValue::asString)
             .orElse("")
@@ -26,7 +27,7 @@ class LootSplitCommandHandler(
         return event.reply()
             .withEphemeral(true)
             .withContent(
-                lootSplitCommandProcessor.process(
+                lootSplitProcessor.process(
                     numPlayers = numPlayers.toInt(),
                     lootPayload = csv,
                 )

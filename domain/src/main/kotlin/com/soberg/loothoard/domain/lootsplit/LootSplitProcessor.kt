@@ -1,11 +1,11 @@
-package com.soberg.loothoard.command
+package com.soberg.loothoard.domain.lootsplit
 
-import com.soberg.loothoard.domain.calculate.LootCalculator
-import com.soberg.loothoard.domain.calculate.RoundingLootCalculator
+import com.soberg.loothoard.domain.lootsplit.calculate.LootCalculator
+import com.soberg.loothoard.domain.lootsplit.calculate.RoundingLootCalculator
 import com.soberg.loothoard.domain.parse.LootPayloadParser
 import com.soberg.loothoard.utils.joinToString
 
-class LootSplitCommandProcessor(
+class LootSplitProcessor(
     private val parser: LootPayloadParser = LootPayloadParser(),
     private val calculator: LootCalculator = RoundingLootCalculator(),
 ) {
