@@ -20,5 +20,5 @@ dependencies {
 }
 
 tasks.getByName<BootJar>("bootJar") {
-    this.archiveFileName.set("${rootProject.name}.jar")
+    this.archiveFileName.set("${rootProject.name}-${project.version}.jar")
 }
