@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
 // Temporary fix for https://youtrack.jetbrains.com/issue/KTIJ-19369
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -15,4 +17,8 @@ dependencies {
     implementation(libs.springBoot.web)
 
     testImplementation(libs.bundles.unitTest)
+}
+
+tasks.getByName<BootJar>("bootJar") {
+    this.archiveFileName.set("${rootProject.name}.jar")
 }
