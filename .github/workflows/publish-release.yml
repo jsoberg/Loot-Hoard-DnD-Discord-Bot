@@ -51,5 +51,5 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{github.workspace}}/bot/build/libs/LootHoardDiscordBot-${{ env.RELEASE_VERSION }}.jar
           asset_name: release-jar
-          tag: ${{ github.ref }}
+          tag: ${{ env.RELEASE_VERSION }}
           overwrite: true
