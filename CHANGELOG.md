@@ -6,11 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [1.0.3] - 2022-09-04
+
 ## [1.0.1] - 2022-09-04
 
 ### Changed
 
-- Updated the release publish action to upload the expected release jar.
+-   Updated the release publish action to upload the expected release jar.
 
 ## [1.0.0] - 2022-09-03
 
@@ -18,7 +20,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 -   Added the initial Loot Hoard Discord Bot, with the `/split` loot splitting command.
 
-[Unreleased]: https://github.com/jsoberg/Loot-Hoard-DnD-Discord-Bot/compare/1.0.1...HEAD
+[Unreleased]: https://github.com/jsoberg/Loot-Hoard-DnD-Discord-Bot/compare/1.0.3...HEAD
+
+[1.0.3]: https://github.com/jsoberg/Loot-Hoard-DnD-Discord-Bot/compare/1.0.1...1.0.3
 
 [1.0.1]: https://github.com/jsoberg/Loot-Hoard-DnD-Discord-Bot/compare/1.0.0...1.0.1
 
