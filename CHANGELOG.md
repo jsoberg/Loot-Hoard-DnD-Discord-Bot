@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.0.1] - 2022-09-04
 
+### Changed
+
+- Updated the release publish action to upload the expected release jar.
+
 ## [1.0.0] - 2022-09-03
 
 ### Added
