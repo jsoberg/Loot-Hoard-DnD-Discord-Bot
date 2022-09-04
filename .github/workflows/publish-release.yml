@@ -14,7 +14,7 @@ jobs:
     name: Publish new release
     runs-on: ubuntu-latest
     # We only want merged pull requests prepended with 'release/' to trigger this job.
-    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, release/)
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release/')
     steps:
       - name: Extract version from branch name (for release branches)
         if: startsWith(github.event.pull_request.head.ref, 'release/')
