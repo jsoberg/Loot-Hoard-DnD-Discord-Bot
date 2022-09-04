@@ -59,4 +59,4 @@ jobs:
           body: |
             Hi @${{ github.actor }}!
             This PR was created in response to a manual trigger of the release workflow here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.
-            The changelog and project version have been updating in this commit: ${{ steps.make-commit.outputs.commit }}.
+            The changelog and project version have been updated in this commit: ${{ steps.make-commit.outputs.commit }}.
