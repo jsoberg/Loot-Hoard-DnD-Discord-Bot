@@ -31,7 +31,7 @@ jobs:
           target_commitish: ${{ github.event.pull_request.merge_commit_sha }}
           tag_name: ${{ env.RELEASE_VERSION }}
           name: ${{ env.RELEASE_VERSION }}
-          draft: true
+          draft: false
           prerelease: false
 
       - name: Checkout repository
