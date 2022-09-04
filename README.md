@@ -1,6 +1,8 @@
-# Loot Hoard
+# Loot Hoard D&D Discord Bot
 
-![](https://dcbadge.vercel.app/api/shield/1000943034202066984?bot=true&style=flat)  ![build and test status](https://github.com/jsoberg/Loot-Hoard-DnD-Discord-Bot/actions/workflows/gradle.yml/badge.svg?branch=main)  [![Maintainability](https://api.codeclimate.com/v1/badges/6c0494fce51d8e7d7830/maintainability)](https://codeclimate.com/github/jsoberg/Loot-Hoard-DnD-Discord-Bot/maintainability)  [![Test Coverage](https://api.codeclimate.com/v1/badges/6c0494fce51d8e7d7830/test_coverage)](https://codeclimate.com/github/jsoberg/Loot-Hoard-DnD-Discord-Bot/test_coverage)
+[![Discord](https://img.shields.io/badge/Add%20Loot%20Hoard-%237289DA.svg?style=flat&logo=discord&logoColor=white)](https://discord.com/api/oauth2/authorize?client_id=1000943034202066984&permissions=2048&scope=bot%20applications.commands)  
+
+![build and test status](https://github.com/jsoberg/Loot-Hoard-DnD-Discord-Bot/actions/workflows/gradle.yml/badge.svg?branch=main)  [![Maintainability](https://api.codeclimate.com/v1/badges/6c0494fce51d8e7d7830/maintainability)](https://codeclimate.com/github/jsoberg/Loot-Hoard-DnD-Discord-Bot/maintainability)  [![Test Coverage](https://api.codeclimate.com/v1/badges/6c0494fce51d8e7d7830/test_coverage)](https://codeclimate.com/github/jsoberg/Loot-Hoard-DnD-Discord-Bot/test_coverage)
 
 Loot Hoard is a Discord bot that can automatically split loot amongst any number of players in a
 D&amp;D game, based off of the coins and values from traditional D&amp;D rules. You can add it to your server now from [here](https://discord.com/api/oauth2/authorize?client_id=1000943034202066984&permissions=2048&scope=bot%20applications.commands)!
@@ -44,7 +46,7 @@ Note that you **don't want to use String quotations ("") around the private toke
 1. Run the bot!
 You'll need Java 11 to run the bot. Note that the bot will automatically look for the necessary `application.properties` file from the directory it's run in, or from a `config` subdirectory in the same spot. You can pass in the `-Dspring.config.location=<config directory>` flag **before** the -jar identifier to set the config location, if you're running from somewhere other than the directory that the jar is in (e.g. for running from `systemd` on boot).
 
-My `systemd` service looks like the following:
+As an example, my `systemd` service looks like the following:
 ```
 [Unit]
 Description=Run Loot Hoard Discord Bot
@@ -56,4 +58,3 @@ ExecStart=/bin/bash -c '/usr/bin/java -Dspring.config.location=/home/<username>/
 [Install]
 WantedBy=multi-user.target
 ```
-Using the `*.jar` makes it easy to drop in new versions.
