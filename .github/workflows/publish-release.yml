@@ -1,6 +1,6 @@
 # Adapted from https://github.com/thomaseizinger/github-action-gitflow-release-workflow/blob/dev/.github/workflows/publish-new-release.yml
 
-name: "Publish release"
+name: "Publish release test that I'm going to force push away"
 
 on:
   pull_request:
