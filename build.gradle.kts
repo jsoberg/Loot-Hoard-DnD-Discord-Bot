@@ -3,6 +3,12 @@ import kotlinx.kover.api.KoverProjectConfig
 
 apply(plugin = "kover")
 
+// Temporary fix for https://youtrack.jetbrains.com/issue/KTIJ-19369
+@Suppress("DSL_SCOPE_VIOLATION")
+plugins {
+    alias(libs.plugins.gradleVersions)
+}
+
 buildscript {
     repositories {
         google()
