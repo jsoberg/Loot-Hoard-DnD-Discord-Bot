@@ -1,7 +1,7 @@
 [versions]
 discord4j = "3.2.3"
-junit = "5.8.2"
 gradleVersions = "0.44.0"
+junit = "5.9.1"
 kotlin = "1.7.21"
 kover = "0.6.1"
 springBoot = "2.7.5"
@@ -13,7 +13,7 @@ discord4j = { module = "com.discord4j:discord4j-core", version.ref = "discord4j"
 
 # Kotlin
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 
 # Kover
 kover-gradlePlugin = { module = "org.jetbrains.kotlinx:kover", version.ref = "kover" }
@@ -30,7 +30,7 @@ test-truth = { module = "com.google.truth:truth", version.ref = "truth" }
 unitTest = ["test-junit-api", "test-junit-engine", "test-truth"]
 
 [plugins]
-springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
 gradleVersions = { id = "com.github.ben-manes.versions", version.ref = "gradleVersions" }
 kotlin-allOpen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
 kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
