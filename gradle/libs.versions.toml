@@ -1,6 +1,7 @@
 [versions]
 discord4j = "3.2.3"
 junit = "5.8.2"
+gradleVersions = "0.44.0"
 kotlin = "1.7.21"
 kover = "0.6.1"
 springBoot = "2.7.5"
@@ -30,5 +31,6 @@ unitTest = ["test-junit-api", "test-junit-engine", "test-truth"]
 
 [plugins]
 springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
+gradleVersions = { id = "com.github.ben-manes.versions", version.ref = "gradleVersions" }
 kotlin-allOpen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
 kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
