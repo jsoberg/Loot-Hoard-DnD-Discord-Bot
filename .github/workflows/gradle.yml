@@ -33,7 +33,7 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
           # Unfortunately we have to set this explicitly per module for now (see https://github.com/paambaati/codeclimate-action/issues/208)
-          JACOCO_SOURCE_PATH: ${{github.workspace}}/bot/src/main/kotlin ${{github.workspace}}/domain/src/main/kotlin ${{github.workspace}}/utils/src/main/kotlin
+          JACOCO_SOURCE_PATH: ${{github.workspace}}/bot/src/main/kotlin ${{github.workspace}}/lootsplit-domain/src/main/kotlin ${{github.workspace}}/infra-string-ext/src/main/kotlin
         with:
           coverageCommand: ./gradlew koverMergedXmlReport
           coverageLocations: ${{github.workspace}}/build/kover/coverage.xml:jacoco
