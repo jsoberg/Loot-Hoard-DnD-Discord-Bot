@@ -5,7 +5,7 @@ plugins {
 
 dependencies {
     implementation(libs.kotlin.stdlib)
-    implementation(projects.utils)
+    implementation(projects.infraStringExt)
 
     testImplementation(libs.bundles.unitTest)
 }

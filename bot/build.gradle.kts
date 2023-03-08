@@ -10,7 +10,7 @@ plugins {
 }
 
 dependencies {
-    implementation(projects.domain)
+    implementation(projects.lootsplitDomain)
 
     implementation(libs.discord4j)
     implementation(libs.kotlin.stdlib)
