@@ -11,6 +11,7 @@ dependencies {
     implementation(projects.lootsplitDomain)
 
     implementation(libs.discord4j)
+    implementation(libs.kotlin.reflect)
     implementation(libs.kotlin.stdlib)
     implementation(libs.springBoot.web)
 
