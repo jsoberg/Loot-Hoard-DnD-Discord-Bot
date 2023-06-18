@@ -1,7 +1,5 @@
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
-// Temporary fix for https://youtrack.jetbrains.com/issue/KTIJ-19369
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     kotlin("jvm")
     alias(libs.plugins.kotlin.allOpen)
